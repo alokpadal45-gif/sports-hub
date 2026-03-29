@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sports Hub – Games</title>
+  <title>Sports Hub - Games</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
+  
   <header>
-    <div class="nav-container">
-      <div class="logo">Sports Hub</div>
+    <div class="navbar">
+      <h1 class="logo">Sports Hub</h1>
       <nav>
         <a href="index.html">Home</a>
         <a href="game.html" class="active">Game</a>
@@ -20,109 +20,110 @@
     </div>
   </header>
 
-  <main class="game-page">
-    <h1 class="page-title">Mini Games</h1>
+
+  <div class="page-top">
+    <h2>Mini Games</h2>
+  </div>
+
+  <div class="game-box">
+    <h3>Football Penalty Shoot</h3>
+    <p>Pick a direction to shoot. The goalkeeper will try to save it.</p>
+
+    <div class="score-area">
+      <div>
+        <span class="score-label">Goals</span>
+        <span class="score-num" id="football-goals">0</span>
+      </div>
+      <div>
+        <span class="score-label">Attempts</span>
+        <span class="score-num" id="football-attempts">0</span>
+      </div>
+    </div>
+    
+    <div class="goal-net">
+      <div class="net-cell" id="net-left">Left</div>
+      <div class="net-cell" id="net-center">Center</div>
+      <div class="net-cell" id="net-right">Right</div>
+    </div>
 
    
-    <section class="game-section">
-      <div class="game-card">
-        <h2>⚽ Football Penalty Shoot</h2>
-        <p class="game-desc">Choose where to shoot. The goalkeeper will try to save it!</p>
+    <div class="gk-row">
+      <div class="gk" id="goalkeeper">GK</div>
+    </div>
 
-        <div class="score-board">
-          <div class="score-item">
-            <span class="score-label">Goals</span>
-            <span class="score-number" id="football-goals">0</span>
-          </div>
-          <div class="score-item">
-            <span class="score-label">Attempts</span>
-            <span class="score-number" id="football-attempts">0</span>
-          </div>
-        </div>
+    <div class="btn-row">
+      <button class="btn" onclick="shoot('left')">Left</button>
+      <button class="btn" onclick="shoot('center')">Center</button>
+      <button class="btn" onclick="shoot('right')">Right</button>
+    </div>
 
-        <div class="shoot-area">
-          <div class="goal-net">
-            <div class="net-cell" id="net-left">Left</div>
-            <div class="net-cell" id="net-center">Center</div>
-            <div class="net-cell" id="net-right">Right</div>
-          </div>
-          <div class="goalkeeper" id="goalkeeper">GK</div>
-        </div>
+    
+    <div class="result-box" id="football-result"></div>
 
-        <div class="direction-buttons">
-          <button class="btn shoot-btn" onclick="shoot('left')">Left</button>
-          <button class="btn shoot-btn" onclick="shoot('center')">Center</button>
-          <button class="btn shoot-btn" onclick="shoot('right')">Right</button>
-        </div>
+    <div class="history-box">
+      <h4>Previous Scores</h4>
+      <ul id="football-history"></ul>
+    </div>
 
-        <div class="result-box" id="football-result"></div>
+    <button class="btn btn-gray" onclick="resetFootball()">Reset Game</button>
+  </div>
 
-        <div class="prev-scores">
-          <h4>Previous Scores</h4>
-          <ul id="football-history"></ul>
-        </div>
 
-        <button class="btn reset-btn" onclick="resetFootball()">Reset Game</button>
+  <div class="game-box">
+    <h3>Hand Cricket</h3>
+    <p>Pick a number from 1 to 6. If computer picks the same number, you are OUT!</p>
+
+    
+    <div class="score-area">
+      <div>
+        <span class="score-label">Your Runs</span>
+        <span class="score-num" id="cricket-runs">0</span>
       </div>
-    </section>
-
-    <section class="game-section">
-      <div class="game-card">
-        <h2>🏏 Hand Cricket</h2>
-        <p class="game-desc">Choose a number 1 to 6. If the computer picks the same number, you are OUT!</p>
-
-        <div class="score-board">
-          <div class="score-item">
-            <span class="score-label">Your Runs</span>
-            <span class="score-number" id="cricket-runs">0</span>
-          </div>
-          <div class="score-item">
-            <span class="score-label">Status</span>
-            <span class="score-number" id="cricket-status">Batting</span>
-          </div>
-        </div>
-
-        <div class="cricket-display">
-          <div class="player-choice">
-            <p>You chose</p>
-            <span class="big-number" id="player-choice-display">?</span>
-          </div>
-          <div class="vs-text">VS</div>
-          <div class="computer-choice">
-            <p>Computer chose</p>
-            <span class="big-number" id="computer-choice-display">?</span>
-          </div>
-        </div>
-
-        <div class="number-buttons">
-          <button class="btn num-btn" onclick="playBall(1)">1</button>
-          <button class="btn num-btn" onclick="playBall(2)">2</button>
-          <button class="btn num-btn" onclick="playBall(3)">3</button>
-          <button class="btn num-btn" onclick="playBall(4)">4</button>
-          <button class="btn num-btn" onclick="playBall(5)">5</button>
-          <button class="btn num-btn" onclick="playBall(6)">6</button>
-        </div>
-
-        <div class="result-box" id="cricket-result"></div>
-
-        <div class="prev-scores">
-          <h4>Previous Scores</h4>
-          <ul id="cricket-history"></ul>
-        </div>
-
-        <button class="btn reset-btn" onclick="resetCricket()">New Innings</button>
+      <div>
+        <span class="score-label">Status</span>
+        <span class="score-num" id="cricket-status">Batting</span>
       </div>
-    </section>
-  </main>
+    </div>
+
+    <div class="vs-box">
+      <div class="vs-side">
+        <p>You chose</p>
+        <span class="big-num" id="player-num">?</span>
+      </div>
+      <span class="vs-text">VS</span>
+      <div class="vs-side">
+        <p>Computer chose</p>
+        <span class="big-num" id="computer-num">?</span>
+      </div>
+    </div>
+
+  
+    <div class="num-btn-row">
+      <button class="btn circle-btn" onclick="playBall(1)">1</button>
+      <button class="btn circle-btn" onclick="playBall(2)">2</button>
+      <button class="btn circle-btn" onclick="playBall(3)">3</button>
+      <button class="btn circle-btn" onclick="playBall(4)">4</button>
+      <button class="btn circle-btn" onclick="playBall(5)">5</button>
+      <button class="btn circle-btn" onclick="playBall(6)">6</button>
+    </div>
+
+
+    <div class="result-box" id="cricket-result"></div>
+
+    <div class="history-box">
+      <h4>Previous Scores</h4>
+      <ul id="cricket-history"></ul>
+    </div>
+
+    <button class="btn btn-gray" onclick="resetCricket()">New Innings</button>
+  </div>
 
   <footer>
-    <div class="footer-content">
-      <p>© 2025 Sports Hub — All Rights Reserved</p>
-      <div class="social-links">
-        <a href="https://www.facebook.com" target="_blank">Facebook</a>
-        <a href="https://www.instagram.com" target="_blank">Instagram</a>
-        <a href="https://www.twitter.com" target="_blank">Twitter</a>
-      </div>
+    <p>© 2025 Sports Hub. All Rights Reserved.</p>
+    <div class="footer-links">
+      <a href="https://www.facebook.com" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com" target="_blank">Instagram</a>
+      <a href="https://www.twitter.com" target="_blank">Twitter</a>
     </div>
   </footer>
 

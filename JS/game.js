@@ -7,7 +7,6 @@ window.onload = function () {
   loadCricketHistory();
 };
 
-
 function shoot(playerDirection) {
   var randomIndex = Math.floor(Math.random() * 3);
   var goalkeeperDirection = directions[randomIndex];
@@ -87,7 +86,6 @@ function loadFootballHistory() {
   }
 }
 
-
 var cricketRuns = 0;
 var cricketOut = false;
 
@@ -100,8 +98,8 @@ function playBall(playerNumber) {
 
   var computerNumber = Math.floor(Math.random() * 6) + 1;
 
-  document.getElementById("player-choice-display").textContent = playerNumber;
-  document.getElementById("computer-choice-display").textContent = computerNumber;
+  document.getElementById("player-num").textContent = playerNumber;
+  document.getElementById("computer-num").textContent = computerNumber;
 
   var resultBox = document.getElementById("cricket-result");
 
@@ -125,8 +123,8 @@ function resetCricket() {
   cricketOut = false;
   document.getElementById("cricket-runs").textContent = 0;
   document.getElementById("cricket-status").textContent = "Batting";
-  document.getElementById("player-choice-display").textContent = "?";
-  document.getElementById("computer-choice-display").textContent = "?";
+  document.getElementById("player-num").textContent = "?";
+  document.getElementById("computer-num").textContent = "?";
   document.getElementById("cricket-result").textContent = "";
   document.getElementById("cricket-result").className = "result-box";
 }
@@ -155,7 +153,6 @@ function loadCricketHistory() {
     list.appendChild(li);
   }
 }
-
 
 function animateScore(elementId) {
   var el = document.getElementById(elementId);
